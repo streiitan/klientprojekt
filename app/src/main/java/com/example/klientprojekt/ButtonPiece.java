@@ -7,6 +7,7 @@ package com.example.klientprojekt;
  */
 public class ButtonPiece {
     private boolean isKing;
+    private CellNode placed;
 
 
     public ButtonPiece(){
@@ -23,6 +24,12 @@ public class ButtonPiece {
      * Change the piece to be a king instead of a men.
      */
     public void makeKing(){
-        //TODO Registrera pjäsen till en kung.
+        this.isKing = true;
+    }
+    public void setCellNode(CellNode){
+
+    }
+    public CellNode getCellNode(){
+
     }
 }
