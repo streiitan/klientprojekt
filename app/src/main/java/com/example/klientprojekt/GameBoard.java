@@ -25,7 +25,21 @@ public class GameBoard implements Serializable {
         for (int x = 0; x < BOARD_SIZE; x += 2) {
             board[0][x].placePiece(new Piece(Piece.LIGHT));
             board[2][x].placePiece(new Piece(Piece.LIGHT));
-            board[6][x].placePiece(new Piece(Piece.LIGHT));
+            board[6][x].placePiece(new Piece(Piece.DARK));
+
+            lightPieces.add(board[0][x].getPiece());
+            lightPieces.add(board[2][x].getPiece());
+            darkPieces.add(board[6][x].getPiece());
+        }
+
+        for (int x = 1; x < BOARD_SIZE; x += 2) {
+            board[1][x].placePiece(new Piece(Piece.LIGHT));
+            board[5][x].placePiece(new Piece(Piece.DARK));
+            board[7][x].placePiece(new Piece(Piece.DARK));
+
+            lightPieces.add(board[1][x].getPiece());
+            darkPieces.add(board[5][x].getPiece());
+            darkPieces.add(board[7][x].getPiece());
         }
     }
 
