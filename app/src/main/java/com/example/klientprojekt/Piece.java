@@ -9,6 +9,8 @@ import java.io.Serializable;
  *
  */
 public class Piece implements Serializable {
+
+    private String color;
     private boolean isKing;
     private CellNode placed;
 
@@ -17,8 +19,9 @@ public class Piece implements Serializable {
 
     /**
      */
-    public Piece(){
+    public Piece(String color){
      /* TODO registrera vilken användares pjäs som ska hanteras samt den exakta. */
+        this.color = color;
         this.isKing = false;
         this.placed = null;
     }
