@@ -68,6 +68,7 @@ public class Piece implements Serializable {
             return null;
         }
     }
+    @Override
     public boolean equals(Object obj){
         if(!(obj instanceof Piece)){
             return false;
