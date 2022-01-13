@@ -11,16 +11,23 @@ import java.io.Serializable;
 public class Piece implements Serializable {
     private boolean isKing;
     private CellNode placed;
+    private String color;
 
     public static final String DARK = "Dark";
     public static final String LIGHT = "Light";
 
     /**
      */
-    public Piece(){
-     /* TODO registrera vilken användares pjäs som ska hanteras samt den exakta. */
+    public Piece(String color){
+        if(!(color.equals(Piece.DARK) || color.equals(Piece.LIGHT))){
+            throw new IllegalArgumentException("The provided color for piece is not valid. Provided color: " + color);
+        }
+        this.color = color;
         this.isKing = false;
         this.placed = null;
+    }
+    public String getColor(){
+        return this.color;
     }
     /**
     * Checks if the piece is a king or not.
@@ -69,7 +76,7 @@ public class Piece implements Serializable {
         Piece givenPiece =  (Piece) obj;
 
         if(givenPiece.getColor().equals(this.color) && givenPiece.isKing() == this.isKing &&
-                givenPiece.getCell().getX() == this.placedCell.getX() && givenPiece.getCell().getY() == this.placedCell.getY()){
+                givenPiece.getCellNode().getX() == this.placed.getX() && givenPiece.getCellNode().getY() == this.placed.getY()){
             return true;
         }
         return false;
