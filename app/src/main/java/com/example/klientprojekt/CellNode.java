@@ -37,7 +37,7 @@ public class CellNode implements Serializable {
     public void placePiece(ButtonPiece piece) {
         placedPiece = piece;
         if (piece != null) {
-            piece.setCell(this);
+            piece.setCellNode(this);
             if (x == 0 && piece.getColor().equals(ButtonPiece.DARK)) {
                 placedPiece.makeKing();
             } else if (x == 7 && piece.getColor().equals(ButtonPiece.LIGHT)) {
@@ -49,7 +49,7 @@ public class CellNode implements Serializable {
     public void movePiece(CellNode anotherCell) {
         try {
             anotherCell.placePiece(placedPiece);
-            placedPiece.setCell(anotherCell);
+            placedPiece.setCellNode(anotherCell);
             placedPiece = null;
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
