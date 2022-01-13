@@ -16,11 +16,11 @@ public class Player implements Serializable {
     public String getColor(){
         return this.color;
     }
-    public boolean hasMoves(Board board){
-        ArrayList<Piece> pieces = board.getPieces(this.color);
+    public boolean hasMoves(GameBoard board){
+        ArrayList<Piece> pieces = GameBoard.getPieces(this.color);
         if(pieces.size() > 0){
             for(Piece piece: pieces){
-                if(board.possibleMoves(piece).size() > 0){
+                if(GameBoard.possibleMoves(piece).size() > 0){
                     return true;
                 }
             }
