@@ -20,10 +20,15 @@ public class Piece implements Serializable {
     /**
      */
     public Piece(String color){
-     /* TODO registrera vilken användares pjäs som ska hanteras samt den exakta. */
+        if(!(color.equals(Piece.DARK) || color.equals(Piece.LIGHT))){
+            throw new IllegalArgumentException("The provided color for piece is not valid. Provided color: " + color);
+        }
         this.color = color;
         this.isKing = false;
         this.placed = null;
+    }
+    public String getColor(){
+        return this.color;
     }
     /**
     * Checks if the piece is a king or not.
@@ -64,6 +69,7 @@ public class Piece implements Serializable {
             return null;
         }
     }
+    @Override
     public boolean equals(Object obj){
         if(!(obj instanceof Piece)){
             return false;
@@ -72,7 +78,7 @@ public class Piece implements Serializable {
         Piece givenPiece =  (Piece) obj;
 
         if(givenPiece.getColor().equals(this.color) && givenPiece.isKing() == this.isKing &&
-                givenPiece.getCell().getX() == this.placedCell.getX() && givenPiece.getCell().getY() == this.placedCell.getY()){
+                givenPiece.getCellNode().getX() == this.placed.getX() && givenPiece.getCellNode().getY() == this.placed.getY()){
             return true;
         }
         return false;
